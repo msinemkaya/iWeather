@@ -16,21 +16,21 @@ body {
 .heading {
     @apply font-bold
 }
-.heading .hg {
+.heading.hg {
     @apply text-8xl font-extrabold
 }
-.heading .xl {
+.heading.xl {
     @apply text-5xl leading-[120%] font-extrabold
 }
-.heading .lg {
+.heading.lg {
     @apply text-[2rem] leading-[140%]
 }
-.heading .md {
+.heading.md {
     @apply text-xl
 }
-.heading .sm {
+.heading.sm {
     @apply text-base
 }
-.heading .xs {
+.heading.xs {
     @apply text-sm
 }
