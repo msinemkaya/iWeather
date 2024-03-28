@@ -23,6 +23,9 @@ export default {
       fontFamily : {
         'nunito' : '"Nunito", sans-serif'
       },
+      backgroundImage : {
+        'few-night' : 'url("./src/assets/weather-bg/fewClouds-night.svg")'
+      }
     },
   },
   plugins: [],
