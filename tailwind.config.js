@@ -25,9 +25,22 @@ export default {
       },
       backgroundImage : {
         'few-night' : 'url("./src/assets/weather-bg/fewClouds-night.svg")'
-      }
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".scrollbar-hidden::-webkit-scrollbar": {
+          'display': "none",
+        },
+        ".scrollbar-hidden": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 }
 
