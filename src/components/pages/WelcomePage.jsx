@@ -1,7 +1,25 @@
 import { LogoFull } from '../base/LogoFull.jsx'
 import { Input } from '../base/Input.jsx'
+import { useState } from 'react'
+import { LoadScript, StandaloneSearchBox } from '@react-google-maps/api'
 
 export const WelcomePage = () => {
+  const [ autocomplete, setAutocomplete ] = useState(null)
+  const [ place, setPlace ] = useState('')
+
+  const handlePlaceChanged = () => {
+    if (autocomplete !== null) {
+      const place = autocomplete.getPlace()
+      setPlace(place.formatted_address)
+    } else {
+      console.log('Not loaded yet!')
+    }
+  }
+
+  const handleChange = ({ target }) => {
+    setPlace(target.value)
+  }
+
   return (
     <>
       <div className='my-12 grid w-full fixed place-items-center'>
@@ -15,7 +33,11 @@ export const WelcomePage = () => {
         </div>
 
         <div className='mx-8'>
-          <Input type='text' placeholder='Search location'/>
+          <LoadScript googleMapsApiKey={import.meta.env.VITE_LOCATION_API_KEY} libraries={[ 'places' ]}>
+            <StandaloneSearchBox onLoad={setAutocomplete} onPlacesChanged={handlePlaceChanged}>
+              <Input type='text' placeholder='Search location' onChange={handleChange} value={place}/>
+            </StandaloneSearchBox>
+          </LoadScript>
         </div>
       </div>
     </>
