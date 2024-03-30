@@ -34,3 +34,32 @@ body {
 .heading.xs {
     @apply text-sm
 }
+
+.pac-container {
+    @apply bg-gray-500 text-gray-100 rounded-lg border-none mt-2
+}
+
+.hdpi.pac-logo {
+    @apply after:bg-none
+}
+
+.pac-logo:after {
+    padding: 0 !important;
+    height: 0;
+}
+
+.pac-icon {
+    @apply hidden
+}
+
+.pac-item {
+    @apply text-gray-100 px-5 py-4 [&:not(:last-child)]:border-b border-gray-700  hover:bg-gray-600
+}
+
+.pac-item-query {
+    @apply text-gray-100
+}
+
+.pac-item-query, .pac-item {
+    @apply text-sm
+}
