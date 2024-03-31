@@ -1,9 +1,9 @@
-import { WelcomePage } from './components/pages/WelcomePage.jsx'
+import { WeatherInfoPage } from './components/pages/WeatherInfoPage.jsx'
 
 const App = () => {
   return (
     <div>
-      <WelcomePage/>
+      <WeatherInfoPage/>
     </div>
   )
 }
