@@ -15,7 +15,6 @@ export const WelcomePage = () => {
       const selected = places.length > 0 ? places[0].formatted_address : ''
       setPlace(selected)
       setLocation([places[0].geometry.location.lng(), places[0].geometry.location.lat()])
-    console.log()
     } else {
       console.log('Not loaded yet!')
     }
@@ -24,7 +23,6 @@ export const WelcomePage = () => {
     setPlace(e.target.value)
   }
 
-  console.log(place)
   return (
     <>
       <div className='my-12 grid w-full fixed place-items-center'>
