@@ -3,10 +3,11 @@ import { WeatherBackgroundContainer } from '../common/WeatherBackgroundContainer
 import { WeatherInfoCardIcon } from '../common/WeatherInfoCardIcon.jsx'
 import { WeatherInfoCardInfos } from '../common/WeatherInfoCardInfos.jsx'
 import { WeatherInfoCardLocationAndTime } from '../common/WeatherInfoCardLocationAndTime.jsx'
+// import bg from '/src/assets/weather-bg/fewClouds-night.svg'
 
 export const WeatherInfoCard = () => {
-  const bg = './src/assets/weather-bg/fewClouds-night.svg'
-  const icon = './src/assets/weather-icons/fewClouds-night.svg'
+  const bg = '/src/assets/weather-bg/fewClouds-night.svg'
+  const icon = '/src/assets/weather-icons/fewClouds-night.svg'
 
   return (
     <Card className='p-3'>
