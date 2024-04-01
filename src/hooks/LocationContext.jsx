@@ -16,11 +16,11 @@ export const LocationContextProvider = ({ children }) => {
     if (autocomplete !== null) {
       const places = autocomplete.getPlaces()
       const selected = places.length > 0 ? places[0].formatted_address : ''
-      const lang = places[0].geometry.location.lng()
+      const long = places[0].geometry.location.lng()
       const lat = places[0].geometry.location.lat()
       setPlace(selected)
-      setLocation([ lang, lat ])
-      navigateToWeatherPage(lang, lat)
+      setLocation([ long, lat ])
+      navigateToWeatherPage(long, lat)
     } else {
       console.log('Not loaded yet!')
     }
