@@ -4,13 +4,16 @@ import App from './App.jsx'
 import './index.css'
 import { LocationContextProvider } from './hooks/LocationContext.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import { WeatherContextProvider } from './hooks/WeatherContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <LocationContextProvider>
-        <App/>
-      </LocationContextProvider>
+      <WeatherContextProvider>
+        <LocationContextProvider>
+          <App/>
+        </LocationContextProvider>
+      </WeatherContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )
