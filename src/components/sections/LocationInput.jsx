@@ -2,10 +2,11 @@ import { LoadScript, StandaloneSearchBox } from '@react-google-maps/api'
 import { Input } from '../base/Input.jsx'
 import { useMemo } from 'react'
 import { useLocation } from '../../hooks/use-location.js'
+import { Loader } from '../base/Loader.jsx'
 
 export const LocationInput = () => {
-  const libs = useMemo(() => ['places'], [])
-  const {setAutocomplete, handlePlaceChanged, handleChange, place, loading} = useLocation()
+  const libs = useMemo(() => [ 'places' ], [])
+  const { setAutocomplete, handlePlaceChanged, handleChange, place, loading } = useLocation()
 
   return (
     <LoadScript googleMapsApiKey={import.meta.env.VITE_LOCATION_API_KEY} libraries={libs}>
@@ -14,10 +15,10 @@ export const LocationInput = () => {
           <Input type='text' placeholder='Search location' onChange={handleChange} value={place}/>
           {
             loading && (
-              <img src='/src/assets/phosphor-icons/spinner-gap-regular.svg' className='absolute right-3 top-3 animate-spin-slow' alt='loading spinner'/>
+              <Loader/>
             )
           }
-          </div>
+        </div>
       </StandaloneSearchBox>
     </LoadScript>
   )
