@@ -3,8 +3,8 @@ import { LocationInput } from '../sections/LocationInput.jsx'
 
 export const WelcomePage = () => {
   return (
-    <>
-      <div className='my-12 grid w-full fixed place-items-center'>
+    <div className='xs:max-w-lg xs:mx-auto'>
+      <div className='py-12 grid w-full fixed left-0 top-0 place-items-center'>
         <LogoFull/>
       </div>
 
@@ -18,6 +18,6 @@ export const WelcomePage = () => {
           <LocationInput/>
         </div>
       </div>
-    </>
+    </div>
   )
 }

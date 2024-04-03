@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
 export default {
   content: [
     "./index.html",
@@ -28,7 +29,11 @@ export default {
       },
       animation: {
         'spin-slow': 'spin 2s linear infinite',
-      }
+      },
+      screens: {
+        'xs': '375px',
+        ...defaultTheme.screens,
+      },
     },
   },
   plugins: [
