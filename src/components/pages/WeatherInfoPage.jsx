@@ -1,6 +1,7 @@
 import { WeatherDetails } from '../sections/WeatherDetails.jsx'
 import { WeatherWeekly } from '../sections/WeatherWeekly.jsx'
 import { WeatherInfoCard } from '../sections/WeatherInfoCard.jsx'
+import { SearchAnotherButton } from '../sections/SearchAnotherButton.jsx'
 
 export const WeatherInfoPage = () => {
   return (
@@ -8,6 +9,7 @@ export const WeatherInfoPage = () => {
       <WeatherInfoCard/>
       <WeatherDetails/>
       <WeatherWeekly/>
+      <SearchAnotherButton/>
     </div>
   )
 }

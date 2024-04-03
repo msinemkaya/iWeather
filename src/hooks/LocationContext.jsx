@@ -31,6 +31,9 @@ export const LocationContextProvider = ({ children }) => {
     } else {
       console.log('Not loaded yet!')
     }
+    setLocation([])
+    setPlace('')
+    setAutocomplete(null)
   }
 
   const handleChange = (e) => {
