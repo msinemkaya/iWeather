@@ -25,7 +25,7 @@ export const WeatherInfoCard = () => {
                                   high={Math.round(todaysForecast.main.temp_max)}
                                   text={todaysForecast.weather[0].main}/>
           </div>
-          <div className='-mr-8 -mb-8'>
+          <div className='-mr-8 -mb-7'>
             <WeatherInfoCardIcon iconUrl={icon}/>
           </div>
         </div>
