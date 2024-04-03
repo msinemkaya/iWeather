@@ -37,6 +37,11 @@ export const iconsAndBackground = {
     iconPlain: `${plainIconBasePath}/storm-day.svg`,
     bg: `${bgBasePath}/storm-day.svg`,
   },
+  '13d': {
+    icon: `${iconBasePath}/cloudy-day.svg`,
+    iconPlain: `${plainIconBasePath}/cloudy-day.svg`,
+    bg: `${bgBasePath}/cloudy-day.svg`,
+  },
   '01n': {
     icon: `${iconBasePath}/clear-night.svg`,
     iconPlain: `${plainIconBasePath}/clear-night.svg`,
@@ -71,5 +76,10 @@ export const iconsAndBackground = {
     icon: `${iconBasePath}/storm-night.svg`,
     iconPlain: `${plainIconBasePath}/storm-night.svg`,
     bg: `${bgBasePath}/storm-night.svg`,
+  },
+  '13n': {
+    icon: `${iconBasePath}/cloudy-night.svg`,
+    iconPlain: `${plainIconBasePath}/cloudy-night.svg`,
+    bg: `${bgBasePath}/cloudy-night.svg`,
   },
 }
