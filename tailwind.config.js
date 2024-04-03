@@ -26,6 +26,9 @@ export default {
       backgroundImage : {
         'few-night' : 'url("./src/assets/weather-bg/fewClouds-night.svg")'
       },
+      animation: {
+        'spin-slow': 'spin 2s linear infinite',
+      }
     },
   },
   plugins: [

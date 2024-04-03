@@ -8,6 +8,7 @@ export const LocationContextProvider = ({ children }) => {
   const [ autocomplete, setAutocomplete ] = useState(null)
   const [ place, setPlace ] = useState('')
   const [ location, setLocation ] = useState([])
+  const [loading, setLoading] = useState(false)
   const { fetchWeatherData } = useWeather()
   const navigate = useNavigate()
 
@@ -16,6 +17,7 @@ export const LocationContextProvider = ({ children }) => {
   }
 
   const handlePlaceChanged = async () => {
+    setLoading(true)
     if (autocomplete !== null) {
       const places = autocomplete.getPlaces()
       const selected = places.length > 0 ? places[0].formatted_address : ''
@@ -25,6 +27,7 @@ export const LocationContextProvider = ({ children }) => {
       setLocation([ long, lat ])
       await fetchWeatherData(lat, long)
       navigateToWeatherPage(long, lat)
+      setLoading(false)
     } else {
       console.log('Not loaded yet!')
     }
@@ -43,6 +46,7 @@ export const LocationContextProvider = ({ children }) => {
     setLocation,
     handleChange,
     handlePlaceChanged,
+    loading
   }
 
   return (
