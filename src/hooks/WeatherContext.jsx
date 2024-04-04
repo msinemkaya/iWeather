@@ -6,18 +6,17 @@ export const WeatherContext = createContext({})
 export const WeatherContextProvider = ({ children }) => {
   const [ info, setInfo ] = useState(null)
   const [ weekly, setWeekly ] = useState(null)
+  const [error, setError] = useState(null)
   const iconUrlRoot = '/src/assets/phosphor-icons'
-
   const fetchWeatherData = async (lat, lon) => {
     try {
       const responseInfo = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=1&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`)
       const responseWeekly = await axios.get(`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=7&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`)
       setInfo(responseInfo.data)
       setWeekly(responseWeekly.data)
-      console.log(responseInfo.data)
-      console.log(responseWeekly.data)
     } catch (error) {
       console.log(error)
+      setError(error.message)
     }
   }
 
@@ -52,10 +51,11 @@ export const WeatherContextProvider = ({ children }) => {
   }
 
   const exportedValues = {
-    fetchWeatherData,
-    info,
-    weatherDetails,
     weekly,
+    info,
+    error,
+    fetchWeatherData,
+    weatherDetails,
   }
   return (
     <WeatherContext.Provider value={exportedValues}>

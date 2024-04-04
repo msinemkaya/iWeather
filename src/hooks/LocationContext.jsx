@@ -9,6 +9,7 @@ export const LocationContextProvider = ({ children }) => {
   const [ place, setPlace ] = useState('')
   const [ location, setLocation ] = useState([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   const { fetchWeatherData } = useWeather()
   const navigate = useNavigate()
 
@@ -30,6 +31,7 @@ export const LocationContextProvider = ({ children }) => {
       setLoading(false)
     } else {
       console.log('Not loaded yet!')
+      setError('It is not loaded yet!')
     }
     setLocation([])
     setPlace('')
@@ -47,9 +49,10 @@ export const LocationContextProvider = ({ children }) => {
     setAutocomplete,
     setPlace,
     setLocation,
+    loading,
+    error,
     handleChange,
     handlePlaceChanged,
-    loading
   }
 
   return (
