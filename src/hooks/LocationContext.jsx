@@ -18,30 +18,33 @@ export const LocationContextProvider = ({ children }) => {
   }
 
   const handlePlaceChanged = async () => {
-    setLoading(true)
     if (autocomplete !== null) {
       const places = autocomplete.getPlaces()
-      const selected = places.length > 0 ? places[0].formatted_address : ''
-      const long = places[0].geometry.location.lng().toFixed(2)
-      const lat = places[0].geometry.location.lat().toFixed(2)
-      setPlace(selected)
-      setLocation([ long, lat ])
-      await fetchWeatherData(lat, long)
-      navigateToWeatherPage(long, lat)
-      setLoading(false)
+      if (places.length !== 0) {
+        setLoading(true)
+        const selected = places.length > 0 ? places[0].formatted_address : ''
+        const long = places[0].geometry.location.lng().toFixed(2)
+        const lat = places[0].geometry.location.lat().toFixed(2)
+        setPlace(selected)
+        setLocation([ long, lat ])
+        await fetchWeatherData(lat, long)
+        navigateToWeatherPage(long, lat)
+        setLoading(false)
+        setError(null)
+      } else {
+        setError('Place does not exist, Please enter a valid location!')
+      }
     } else {
       console.log('Not loaded yet!')
-      setError('It is not loaded yet!')
     }
     setLocation([])
     setPlace('')
-    setAutocomplete(null)
   }
 
   const handleChange = (e) => {
     setPlace(e.target.value)
   }
-
+console.log(place)
   const exportedValues = {
     location,
     place,
