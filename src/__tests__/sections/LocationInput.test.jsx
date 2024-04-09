@@ -8,13 +8,13 @@ describe('Location input', () => {
     initialize()
   })
 
-  it('renders the search input', () => {
+  it('should render the search input', () => {
     render(<LocationInput/>)
     const searchInput = screen.getByPlaceholderText('Search location')
     expect(searchInput).toBeInTheDocument()
   })
 
-  it('updates the input value when typed', () => {
+  it('should update the input value when typed', () => {
     render(<LocationInput/>)
     const searchInput = screen.getByPlaceholderText('Search location')
     fireEvent.change(searchInput, { target: { value: 'Opole' } })
