@@ -3,15 +3,15 @@ import { createContext, useState } from 'react'
 
 export const WeatherContext = createContext({})
 
-export const WeatherContextProvider = ({ children }) => {
+export const WeatherContextProvider = ({ children, apiKey }) => {
   const [ info, setInfo ] = useState(null)
   const [ weekly, setWeekly ] = useState(null)
   const [error, setError] = useState(null)
   const iconUrlRoot = '/src/assets/phosphor-icons'
   const fetchWeatherData = async (lat, lon) => {
     try {
-      const responseInfo = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=1&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`)
-      const responseWeekly = await axios.get(`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=7&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`)
+      const responseInfo = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=1&appid=${apiKey}&units=metric`)
+      const responseWeekly = await axios.get(`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=7&appid=${apiKey}&units=metric`)
       setInfo(responseInfo.data)
       setWeekly(responseWeekly.data)
     } catch (error) {
