@@ -3,7 +3,7 @@ import { LocationInput } from '../../components/sections/LocationInput.jsx'
 import { initialize } from '@googlemaps/jest-mocks'
 import '@testing-library/jest-dom'
 
-describe('LocationInput', () => {
+describe('Location input', () => {
   beforeEach(() => {
     initialize()
   })
@@ -16,7 +16,6 @@ describe('LocationInput', () => {
 
   it('updates the input value when typed', () => {
     render(<LocationInput/>)
-
     const searchInput = screen.getByPlaceholderText('Search location')
     fireEvent.change(searchInput, { target: { value: 'Opole' } })
     expect(searchInput.value).toBe('Opole')
