@@ -2,7 +2,6 @@ import { StandaloneSearchBox } from '@react-google-maps/api'
 import { Input } from '../base/Input.jsx'
 import { useLocation } from '../../hooks/use-location.js'
 import { Loader } from '../base/Loader.jsx'
-// import { LocationInputContainer } from './LocationInputContainer.jsx'
 
 export const LocationInput = () => {
   const { setAutocomplete, handlePlaceChanged, handleChange, place, loading } = useLocation()
