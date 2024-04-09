@@ -44,7 +44,7 @@ export const LocationContextProvider = ({ children }) => {
   const handleChange = (e) => {
     setPlace(e.target.value)
   }
-console.log(place)
+
   const exportedValues = {
     location,
     place,
