@@ -4,7 +4,6 @@ import { render, screen } from '@testing-library/react'
 import { WeatherDetailRow } from '../../components/common/WeatherDetailRow.jsx'
 
 describe('weather detail row', () => {
-
   it.each(mockWeatherDetailRowData)('should render with correct props', ({ text, icon, value }) => {
     render(<WeatherDetailRow text={text} icon={icon} value={value}/>)
 
