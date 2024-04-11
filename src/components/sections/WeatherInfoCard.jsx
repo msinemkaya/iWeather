@@ -20,9 +20,9 @@ export const WeatherInfoCard = () => {
         </div>
         <div className='mt-auto flex justify-between items-end'>
           <div className='m-4'>
-            <WeatherInfoCardInfos current={Math.round(todaysForecast.main.temp)}
-                                  low={Math.round(todaysForecast.main.temp_min)}
-                                  high={Math.round(todaysForecast.main.temp_max)}
+            <WeatherInfoCardInfos current={todaysForecast.main.temp}
+                                  low={todaysForecast.main.temp_min}
+                                  high={todaysForecast.main.temp_max}
                                   text={todaysForecast.weather[0].main}/>
           </div>
           <div className='-mr-8 -mb-7'>
