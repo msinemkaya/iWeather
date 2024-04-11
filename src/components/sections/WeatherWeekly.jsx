@@ -9,7 +9,7 @@ export const WeatherWeekly = () => {
     <Card className='flex snap-x scroll-smooth scrollbar-hidden overflow-y-auto flex-1 p-4' data-testid='weather-weekly'>
       {weekly.list.map(item => (
         <WeatherDayCol key={item.dt} low={Math.round(item.temp.min)} high={Math.round(item.temp.max)}
-                       day={new Date(item.dt * 1000).toLocaleDateString('en-us', { weekday: 'short' })}
+                       day={item.dt}
                        icon={iconsAndBackground[item.weather[0].icon].iconPlain}/>
       ))}
     </Card>
