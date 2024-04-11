@@ -8,7 +8,7 @@ export const LocationInput = () => {
 
   return (
     <StandaloneSearchBox onLoad={setAutocomplete} onPlacesChanged={handlePlaceChanged}>
-      <div className='relative'>
+      <div className='relative' data-testid='location-input'>
         <Input type='text' placeholder='Search location' onChange={handleChange} value={place}/>
         {
           loading && (

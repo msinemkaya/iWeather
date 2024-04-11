@@ -1,8 +1,11 @@
 import { LogoFull } from '../base/LogoFull.jsx'
 import { LocationInput } from '../sections/LocationInput.jsx'
 import { ErrorMessage } from '../common/ErrorMessage.jsx'
+import { useLocation } from '../../hooks/use-location.js'
 
 export const WelcomePage = () => {
+  const { error } = useLocation()
+
   return (
     <div className='xs:max-w-lg xs:mx-auto'>
       <div className='py-12 grid w-full fixed left-0 top-0 place-items-center'>
@@ -17,7 +20,7 @@ export const WelcomePage = () => {
           <LocationInput/>
         </div>
       </div>
-      <ErrorMessage/>
+      {error && <ErrorMessage error={error}/>}
     </div>
   )
 }
