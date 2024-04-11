@@ -5,7 +5,7 @@ export const SearchAnotherButton = () => {
   const navigate = useNavigate()
 
   return (
-    <Card>
+    <Card data-testid='search-another-button'>
       <button onClick={() => navigate('/')}
               className='text-gray-200 flex items-center capitalize justify-evenly heading sm w-full p-4'>
         <span>Search for another place</span>

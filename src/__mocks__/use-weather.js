@@ -30,4 +30,5 @@ export const mockUseWeather = jest.fn(() => ({
       },
     ],
   },
+  error: null
 }))

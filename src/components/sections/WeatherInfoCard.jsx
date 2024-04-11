@@ -13,7 +13,7 @@ export const WeatherInfoCard = () => {
   const icon = iconsAndBackground[todaysForecast.weather[0].icon].icon
 
   return (
-    <Card className='p-3'>
+    <Card className='p-3' data-testid='weather-info-card'>
       <WeatherBackgroundContainer bg={bg}>
         <div className='m-5'>
           <WeatherInfoCardLocationAndTime location={`${info.city.name}, ${info.city.country}`}/>
