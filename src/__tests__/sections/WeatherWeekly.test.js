@@ -18,5 +18,8 @@ describe('weather weekly', () => {
     expect(screen.getByText(`${Math.round(temp.min).toString()}ºc`)).toBeInTheDocument()
     expect(screen.getByText(`${Math.round(temp.max).toString()}ºc`)).toBeInTheDocument()
     expect(screen.getByText(dayOfWeek)).toBeInTheDocument()
+
+    const weatherDayCols = screen.getAllByTestId('weather-day-col')
+    expect(weatherDayCols).toHaveLength(mockUseWeather().weekly.list.length)
   })
 })
