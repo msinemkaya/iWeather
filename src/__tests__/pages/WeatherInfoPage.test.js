@@ -22,6 +22,7 @@ describe('weather info page', () => {
     expect(screen.getByTestId('weather-details')).toBeInTheDocument()
     expect(screen.getByTestId('weather-weekly')).toBeInTheDocument()
     expect(screen.getByTestId('search-another-button')).toBeInTheDocument()
+
     expect(screen.queryByTestId('error')).not.toBeInTheDocument()
   })
 })
