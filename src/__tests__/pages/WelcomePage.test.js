@@ -14,6 +14,7 @@ describe('welcome page', () => {
     expect(screen.getByText('Welcome', { exact: false })).toBeInTheDocument()
     expect(screen.getByText('Choose a location to see the weather forecast')).toBeInTheDocument()
     expect(screen.getByTestId('location-input')).toBeInTheDocument()
+
     expect(screen.queryByTestId('error')).not.toBeInTheDocument()
   })
 })
