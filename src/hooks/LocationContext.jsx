@@ -56,6 +56,7 @@ export const LocationContextProvider = ({ children }) => {
     error,
     handleChange,
     handlePlaceChanged,
+    navigateToWeatherPage,
   }
 
   return (
