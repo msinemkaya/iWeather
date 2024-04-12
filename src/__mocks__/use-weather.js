@@ -32,7 +32,6 @@ export const mockUseWeather = jest.fn(() => ({
   },
   error: null,
   fetchWeatherData: jest.fn().mockImplementation((lat, lon) => {
-    console.log(`fetchWeatherData called with: ${lat} ${lon}`)
     return Promise.resolve()
   }),
 }))

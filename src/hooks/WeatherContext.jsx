@@ -15,7 +15,6 @@ export const WeatherContextProvider = ({ children, apiKey }) => {
       setInfo(responseInfo.data)
       setWeekly(responseWeekly.data)
     } catch (error) {
-      console.log(error)
       setError(error.message)
     }
   }
