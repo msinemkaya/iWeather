@@ -3,12 +3,14 @@ import { WeatherBackgroundContainer } from '../common/WeatherBackgroundContainer
 import { WeatherInfoCardIcon } from '../common/WeatherInfoCardIcon.jsx'
 import { WeatherInfoCardInfos } from '../common/WeatherInfoCardInfos.jsx'
 import { WeatherInfoCardLocationAndTime } from '../common/WeatherInfoCardLocationAndTime.jsx'
-import { useWeather } from '../../hooks/use-weather.js'
 import { iconsAndBackground } from '../../utils/icons-and-background.js'
+import { useLoaderData } from 'react-router-dom'
 
 export const WeatherInfoCard = () => {
-  const { info } = useWeather()
-  const todaysForecast = info.list[0]
+  const { responseInfoData } = useLoaderData()
+
+  const infoData =  responseInfoData
+  const todaysForecast = infoData.list[0]
   const bg = iconsAndBackground[todaysForecast.weather[0].icon].bg
   const icon = iconsAndBackground[todaysForecast.weather[0].icon].icon
 
@@ -16,7 +18,7 @@ export const WeatherInfoCard = () => {
     <Card className='p-3' data-testid='weather-info-card'>
       <WeatherBackgroundContainer bg={bg}>
         <div className='m-5'>
-          <WeatherInfoCardLocationAndTime location={`${info.city.name}, ${info.city.country}`}/>
+          <WeatherInfoCardLocationAndTime location={`${infoData.city.name}, ${infoData.city.country}`}/>
         </div>
         <div className='mt-auto flex justify-between items-end'>
           <div className='m-4'>
