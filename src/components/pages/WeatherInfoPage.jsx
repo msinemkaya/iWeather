@@ -10,7 +10,7 @@ export const WeatherInfoPage = () => {
 
   useEffect(() => {
     setLoading(false)
-  }, [])
+  }, [ setLoading ])
 
   return (
     <div className='p-2 lg:max-w-screen-lg lg:mx-auto space-y-2'>

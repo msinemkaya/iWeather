@@ -20,7 +20,7 @@ export const WelcomePage = () => {
           <LocationInput/>
         </div>
       </div>
-      { error && <ErrorMessage error={error}/> }
+      {error && <ErrorMessage error={error}/>}
     </div>
   )
 }

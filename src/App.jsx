@@ -17,7 +17,7 @@ const App = () => {
           path: '/weather',
           element: <WeatherInfoPage/>,
           loader: async ({ request }) => {
-            const url = new URL(request.url);
+            const url = new URL(request.url)
             const long = url.searchParams.get('long')
             const lat = url.searchParams.get('lat')
             return await fetchWeatherData(lat, long)

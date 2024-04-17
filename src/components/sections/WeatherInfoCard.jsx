@@ -9,7 +9,7 @@ import { useLoaderData } from 'react-router-dom'
 export const WeatherInfoCard = () => {
   const { responseInfoData } = useLoaderData()
 
-  const infoData =  responseInfoData
+  const infoData = responseInfoData
   const todaysForecast = infoData.list[0]
   const bg = iconsAndBackground[todaysForecast.weather[0].icon].bg
   const icon = iconsAndBackground[todaysForecast.weather[0].icon].icon
