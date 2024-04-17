@@ -26,7 +26,7 @@ export const LocationContextProvider = ({ children }) => {
         setPlace(selected)
         setLocation([ long, lat ])
         navigateToWeatherPage(long, lat)
-        setLoading(false)
+        setAutocomplete(null)
         setError(null)
       } else {
         setError('Place does not exist, Please enter a valid location!')
@@ -49,6 +49,7 @@ export const LocationContextProvider = ({ children }) => {
     setAutocomplete,
     setPlace,
     setLocation,
+    setLoading,
     loading,
     error,
     handleChange,

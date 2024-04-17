@@ -13,6 +13,6 @@ export const fetchWeatherData = async (lat, lon) => {
 
     return { responseInfoData, responseWeeklyData }
   } catch (error) {
-    throw error
+    return error
   }
 }

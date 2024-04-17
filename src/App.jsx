@@ -5,7 +5,6 @@ import { ContextProviderLayout } from './components/pages/ContextProviderLayout.
 import { fetchWeatherData } from './utils/fetchWeatherData.js'
 
 const App = () => {
-
   const router = createBrowserRouter([
     {
       element: <ContextProviderLayout/>,
@@ -23,6 +22,7 @@ const App = () => {
         },
       ],
     } ])
+
   return (
     <RouterProvider router={router}/>
   )
