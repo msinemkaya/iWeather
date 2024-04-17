@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { createSearchParams, useNavigate } from 'react-router-dom'
 
 export const LocationContext = createContext({})
 
@@ -12,7 +12,13 @@ export const LocationContextProvider = ({ children }) => {
   const navigate = useNavigate()
 
   const navigateToWeatherPage = (long, lat) => {
-    navigate(`/weather/${long}/${lat}`)
+    navigate({
+      pathname: '/weather',
+      search: `?${createSearchParams({
+        lat,
+        long,
+      })}`,
+    })
   }
 
   const handlePlaceChanged = async () => {

@@ -14,10 +14,13 @@ const App = () => {
           element: <WelcomePage/>,
         },
         {
-          path: '/weather/:lat/:lon',
+          path: '/weather',
           element: <WeatherInfoPage/>,
-          loader: async ({ params }) => {
-            return await fetchWeatherData(params.lon, params.lat)
+          loader: async ({ request }) => {
+            const url = new URL(request.url);
+            const long = url.searchParams.get('long')
+            const lat = url.searchParams.get('lat')
+            return await fetchWeatherData(lat, long)
           },
         },
       ],
