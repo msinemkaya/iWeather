@@ -10,7 +10,7 @@ export const weatherDetails = (info) => {
     {
       icon: `${iconUrlRoot}/cloud-rain-light.svg`,
       text: 'Probability of rain',
-      value: `${(info.list[0].pop) * 100}%`,
+      value: `${((info.list[0].pop) * 100).toFixed(0)}%`,
     },
     {
       icon: `${iconUrlRoot}/wind-light.svg`,
