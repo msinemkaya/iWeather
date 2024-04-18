@@ -5,6 +5,7 @@ import { weatherDetails } from '../../utils/weather-details.js'
 
 export const WeatherDetails = () => {
   const { responseInfoData } = useLoaderData()
+
   return (
     <Card className='px-4 py-1' data-testid='weather-details'>
       {weatherDetails(responseInfoData).map(detail => (

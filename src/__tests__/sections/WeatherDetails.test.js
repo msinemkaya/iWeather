@@ -1,14 +1,22 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { WeatherDetails } from '../../components/sections/WeatherDetails.jsx'
-import { mockUseWeather } from '../../__mocks__/use-weather.js'
+import { mockWeatherDetails } from '../../__mocks__/weather-details.js'
+import { mockUseLoaderData } from '../../__mocks__/use-loader-data.js'
 
-jest.mock('../../hooks/use-weather.js', () => ({
-  useWeather: jest.fn(() => mockUseWeather())
+jest.mock('../../utils/weather-details.js', () => ({
+  weatherDetails: jest.fn(() => mockWeatherDetails()),
 }))
+
+jest.mock('react-router-dom', () => ({
+  useLoaderData: jest.fn().mockReturnValue({}),
+}))
+
 describe('weather details', () => {
   beforeEach(() => {
-    render(<WeatherDetails/>)
+    render(
+      <WeatherDetails/>,
+    )
   })
 
   it('should render weather details', () => {
