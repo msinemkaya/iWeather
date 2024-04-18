@@ -1,15 +1,20 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import { WeatherInfoPage } from '../../components/pages/WeatherInfoPage.jsx'
-import { mockUseWeather } from '../../__mocks__/use-weather.js'
+import { mockFetchWeatherData } from '../../__mocks__/fetchWeatherDataData.js'
 import { MemoryRouter } from 'react-router-dom'
+import { WeatherInfoPage } from '../../components/pages/WeatherInfoPage.jsx'
+import { useLocation } from '../../hooks/use-location.js'
 
-jest.mock('../../hooks/use-weather.js', () => ({
-  useWeather: jest.fn(() => mockUseWeather()),
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLoaderData: jest.fn(() => mockFetchWeatherData),
 }))
+
+jest.mock('../../hooks/use-location.js')
 
 describe('weather info page', () => {
   beforeEach(() => {
+    useLocation.mockReturnValue({ setLoading: jest.fn() })
     render(
       <MemoryRouter>
         <WeatherInfoPage/>
@@ -22,7 +27,10 @@ describe('weather info page', () => {
     expect(screen.getByTestId('weather-details')).toBeInTheDocument()
     expect(screen.getByTestId('weather-weekly')).toBeInTheDocument()
     expect(screen.getByTestId('search-another-button')).toBeInTheDocument()
+  })
 
-    expect(screen.queryByTestId('error')).not.toBeInTheDocument()
+  it('sets loading to false after mounting', () => {
+    // Assert that the setLoading function was called with false after mounting
+    expect(useLocation().setLoading).toHaveBeenCalledWith(false)
   })
 })
