@@ -21,7 +21,7 @@ export const LocationContextProvider = ({ children }) => {
     })
   }
 
-  const handlePlaceChanged = async () => {
+  const handlePlaceChanged = () => {
     if (autocomplete !== null) {
       const places = autocomplete.getPlaces()
       if (places.length !== 0) {
