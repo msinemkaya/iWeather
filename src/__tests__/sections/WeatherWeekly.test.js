@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import { mockUseWeather } from '../../__mocks__/use-weather.js'
+import { mockFetchWeatherData } from '../../__mocks__/fetchWeatherDataData.js'
 import { WeatherWeekly } from '../../components/sections/WeatherWeekly.jsx'
 
-jest.mock('../../hooks/use-weather.js', () => ({
-  useWeather: jest.fn(() => mockUseWeather()),
+jest.mock('react-router-dom', () => ({
+  useLoaderData: jest.fn(() => mockFetchWeatherData),
 }))
 
 describe('weather weekly', () => {
@@ -12,7 +12,7 @@ describe('weather weekly', () => {
     render(<WeatherWeekly/>)
   })
 
-  it.each(mockUseWeather().weekly.list)('should render weekly weather data', ({ dt, temp, weather }) => {
+  it.each(mockFetchWeatherData.responseWeeklyData.list)('should render weekly weather data', ({ dt, temp, weather }) => {
     const dayOfWeek = new Date(dt * 1000).toLocaleDateString('en-us', { weekday: 'short' })
 
     expect(screen.getByText(`${Math.round(temp.min).toString()}ºc`)).toBeInTheDocument()
@@ -20,6 +20,6 @@ describe('weather weekly', () => {
     expect(screen.getByText(dayOfWeek)).toBeInTheDocument()
 
     const weatherDayCols = screen.getAllByTestId('weather-day-col')
-    expect(weatherDayCols).toHaveLength(mockUseWeather().weekly.list.length)
+    expect(weatherDayCols).toHaveLength(mockFetchWeatherData.responseWeeklyData.list.length)
   })
 })
