@@ -2,7 +2,6 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { WeatherDetails } from '../../components/sections/WeatherDetails.jsx'
 import { mockWeatherDetails } from '../../__mocks__/weather-details.js'
-import { mockUseLoaderData } from '../../__mocks__/use-loader-data.js'
 
 jest.mock('../../utils/weather-details.js', () => ({
   weatherDetails: jest.fn(() => mockWeatherDetails()),

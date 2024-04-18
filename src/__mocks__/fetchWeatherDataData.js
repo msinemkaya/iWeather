@@ -1,10 +1,5 @@
-export const mockUseWeather = jest.fn(() => ({
-  weatherDetails: jest.fn(() => [
-    { text: 'Temperature', icon: 'temperature icon', value: '25°C' },
-    { text: 'Humidity', icon: 'humidity icon', value: '60%' },
-    { text: 'Wind Speed', icon: 'wind speed icon', value: '10 km/h' },
-  ]),
-  info: {
+export const mockFetchWeatherData = {
+  responseInfoData: {
     list: [
       {
         main: { feels_like: 25, humidity: 60, temp: 25, temp_min: 20, temp_max: 30 },
@@ -18,7 +13,7 @@ export const mockUseWeather = jest.fn(() => ({
       country: 'poland',
     },
   },
-  weekly: {
+  responseWeeklyData: {
     list: [
       {
         dt: 1661870592,
@@ -30,8 +25,4 @@ export const mockUseWeather = jest.fn(() => ({
       },
     ],
   },
-  error: null,
-  fetchWeatherData: jest.fn().mockImplementation((lat, lon) => {
-    return Promise.resolve()
-  }),
-}))
+}
