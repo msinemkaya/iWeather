@@ -19,13 +19,15 @@ describe('Location Context', () => {
       return null
     }
 
-    render(
-      <MemoryRouter>
-        <LocationContextProvider>
-          <TestComponent/>
-        </LocationContextProvider>
-      </MemoryRouter>,
-    )
+    act(() => {
+      render(
+        <MemoryRouter>
+          <LocationContextProvider>
+            <TestComponent/>
+          </LocationContextProvider>
+        </MemoryRouter>,
+      )
+    })
 
     expect(navigate).toHaveBeenCalledWith(expectedUrl)
   })
@@ -59,7 +61,9 @@ describe('Location Context', () => {
 
     const { handlePlaceChanged } = result.current
 
-    handlePlaceChanged()
+    act(() => {
+      handlePlaceChanged()
+    })
 
     expect(autocompleteMock.getPlaces).toHaveBeenCalled()
   })
