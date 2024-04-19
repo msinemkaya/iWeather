@@ -12,7 +12,7 @@ describe('weather weekly', () => {
     render(<WeatherWeekly/>)
   })
 
-  it.each(mockFetchWeatherData.responseWeeklyData.list)('should render weekly weather data', ({ dt, temp, weather }) => {
+  it.each(mockFetchWeatherData.responseWeeklyData.list)('should render weekly weather data', ({ dt, temp }) => {
     const dayOfWeek = new Date(dt * 1000).toLocaleDateString('en-us', { weekday: 'short' })
 
     expect(screen.getByText(`${Math.round(temp.min).toString()}ºc`)).toBeInTheDocument()
