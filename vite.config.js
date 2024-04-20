@@ -11,7 +11,8 @@ export default defineConfig(({ command, mode }) => {
         JSON.stringify(env.VITE_WEATHER_API_KEY),
     },
     server: {
-      host: true
-    }
+      host: true,
+    },
+    base: '/',
   }
 })
