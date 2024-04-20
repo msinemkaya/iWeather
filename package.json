@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "test": "jest --coverage",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@googlemaps/jest-mocks": "^2.21.4",
