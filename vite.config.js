@@ -13,6 +13,6 @@ export default defineConfig(({ command, mode }) => {
     server: {
       host: true,
     },
-    base: '/',
+    base: '/iWeather/',
   }
 })
