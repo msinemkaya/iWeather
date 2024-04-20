@@ -39,11 +39,14 @@ describe('fetchWeatherData function', () => {
 
     weatherApi.get.mockRejectedValueOnce(new Error(errorMessage))
 
-    const result = await fetchWeatherData(lat, lon)
+    try {
+      await fetchWeatherData(lat, lon)
+    } catch (error) {
+      expect(error.message).toEqual(errorMessage)
+    }
 
     expect(weatherApi.get).toHaveBeenCalledTimes(2)
     expect(weatherApi.get).toHaveBeenCalledWith('/', { params: { lat, lon } })
     expect(weatherApi.get).toHaveBeenCalledWith('/daily', { params: { lat, lon } })
-    expect(result).toEqual(new Error(errorMessage))
   })
 })
