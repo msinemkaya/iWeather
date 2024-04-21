@@ -1,4 +1,4 @@
-const iconUrlRoot = '/src/assets/phosphor-icons'
+const iconUrlRoot = 'phosphor-icons'
 
 export const weatherDetails = (info) => {
   return [

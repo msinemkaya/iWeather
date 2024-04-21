@@ -1,6 +1,7 @@
-const bgBasePath = '/src/assets/weather-bg'
-const iconBasePath = '/src/assets/weather-icons'
-const plainIconBasePath = '/src/assets/weather-icons-non-shiny'
+const bgBasePath = 'weather-bg'
+const iconBasePath = 'weather-icons'
+const plainIconBasePath = 'weather-icons-non-shiny'
+
 export const iconsAndBackground = {
   '01d': {
     icon: `${iconBasePath}/clear-day.svg`,
