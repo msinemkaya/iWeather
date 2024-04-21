@@ -30,7 +30,7 @@ const App = () => {
         },
       ],
     } ], {
-    basename: import.meta.env.BASE_URL
+    basename: import.meta.env.BASE_URL,
   })
 
   return (
