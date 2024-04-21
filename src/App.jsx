@@ -1,12 +1,12 @@
 import { WelcomePage } from './components/pages/WelcomePage.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom'
 import { WeatherInfoPage } from './components/pages/WeatherInfoPage.jsx'
 import { ContextProviderLayout } from './components/pages/ContextProviderLayout.jsx'
 import { fetchWeatherData } from './utils/fetchWeatherData.js'
 import { ErrorMessage } from './components/common/ErrorMessage.jsx'
 
 const App = () => {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       element: <ContextProviderLayout/>,
       children: [
@@ -29,9 +29,7 @@ const App = () => {
             </div>),
         },
       ],
-    } ], {
-    basename: import.meta.env.BASE_URL,
-  })
+    } ])
 
   return (
     <RouterProvider router={router}/>
