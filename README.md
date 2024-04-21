@@ -20,9 +20,10 @@
     - I took precautions of a possible prop drilling and/or a child-to-parent communication case.
 - I didn't need to use Redux or any other state management tool since it is a small project and context can do the same
   job just fine without being complicated, so I did not see any need of using one.
-- I used `createBrowserRouter` functionality rather than using `<BrowserRouter/>` component when creating the routes,
-  since it is, one, the recommended way now with React Router v6.4, and two, I decided to use data APIs - `loader` in
-  this case - to send API requests, so I had to anyway.
+- I used `createHashRouter` functionality rather than using `<HashRouter/>` component when creating the routes,
+  since it is, one, the recommended way now with React Router v6.4 - well, technically documentation says don't use hash
+  if not necessary, but I will touch upon why did I use it. What I mean is using function instead of the component -,
+  and two, I decided to use data APIs - `loader` in this case - to send API requests, so I had to anyway.
 - I used query parameters - `useSearchParams` hook - as route parameters to use it in data fetching. It seemed more
   clear and professional to use query parameters than React Routers params feature.
 
@@ -109,6 +110,15 @@
   request with given parameter values, wait for the response to arrive, and THEN navigate fully to the page. This way,
   it remains on the welcome page until the whole fetching is complete.
 
+### Why `createHashRouter` even though it is not recommended
+
+- Initially, I was using `createBrowserRouter` but since the application needed to be on GitHub Pages, I came across to
+  a problem, where, when you reload the page you would face a 404 Not Found page. I looked it up since with my local
+  development environment there was no such issue, and turned out GitHub pages does not support SPA applications very
+  well, sometimes can't see front end routes with React Router and thinks there is no such route. Either I was going to
+  redirect everything to index.html, or I was going to use hash router and get around it. Most efficient way of fixing
+  this seemed like using hash router, so I did.
+
 ## Feedback about the project
 
 - I have a couple of nitpicks I would like you to know about the figma file you gave;
@@ -119,6 +129,6 @@
     - I also think it would be beneficial if you were to share icons without the linear-background lights for us to use
       in the last section where we display the week's general weather forecast.
 
--Other than my nitpicks, I think it was a fun project to do. It was basic, but at the same time, it gave me an
-opportunity to showcase what I know. Providing a design to follow was also nice since it pushed all of us to use the
-same standards and demonstrate how good we are at following a design and creating a pixel-perfect implementation.
+- Other than my nitpicks, I think it was a fun project to do. It was basic, but at the same time, it gave me an
+  opportunity to showcase what I know. Providing a design to follow was also nice since it pushed all of us to use the
+  same standards and demonstrate how good we are at following a design and creating a pixel-perfect implementation.
